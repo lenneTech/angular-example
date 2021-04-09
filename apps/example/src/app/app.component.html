@@ -1,8 +1,81 @@
 <div style="text-align: center">
-  <h1>Welcome to example!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-  />
+  <h1>Simple example</h1>
+
+  <!-- Login -->
+  <div *ngIf="status === 'login'">
+    <h2>Login</h2>
+
+    <p><a href="#" (click)="status = 'signup'">No account yet? Then register now!</a></p>
+
+    <form [formGroup]="form" (ngSubmit)="login()">
+
+      <div class="form-row">
+        <label for="inputLoginEmail">E-mail address</label>
+        <input
+          data-cy="email"
+          type="email"
+          id="inputLoginEmail"
+          class="form-control border-radius-2"
+          [ngClass]="{ 'is-invalid': form.get('email').invalid && form.get('email').touched }"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="inputLoginPassword">Password</label>
+        <input
+          data-cy="password"
+          type="password"
+          id="inputLoginPassword"
+          class="form-control border-radius-2"
+          [ngClass]="{ 'is-invalid': form.get('password').invalid && form.get('password').touched }"
+          formControlName="password"
+        />
+      </div>
+      <button type="submit" [disabled]="form.invalid">Login</button>
+    </form>
+  </div>
+
+  <!-- Signup -->
+  <div *ngIf="status === 'signup'">
+    <h2>Signup</h2>
+
+    <p><a href="#" (click)="status = 'login'">Already have an account? Then log in!</a></p>
+
+    <form [formGroup]="form" (ngSubmit)="register()">
+
+      <div class="form-row">
+        <label for="inputRegisterEmail">E-mail address</label>
+        <input
+          data-cy="email"
+          type="email"
+          id="inputRegisterEmail"
+          class="form-control border-radius-2"
+          [ngClass]="{ 'is-invalid': form.get('email').invalid && form.get('email').touched }"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="form-row">
+        <label for="inputRegisterPassword">Password</label>
+        <input
+          data-cy="password"
+          type="password"
+          id="inputRegisterPassword"
+          class="form-control border-radius-2"
+          [ngClass]="{ 'is-invalid': form.get('password').invalid && form.get('password').touched }"
+          formControlName="password"
+        />
+      </div>
+      <button type="submit" [disabled]="form.invalid">Signup</button>
+    </form>
+  </div>
+
+
+  <div *ngIf="status === 'content'">
+    Hello user with E-mail: {{form.value.email}}
+
+    <button (click)="logout()">Logout</button>
+  </div>
+
 </div>
-<div>Message: {{ hello$ | async | json }}</div>

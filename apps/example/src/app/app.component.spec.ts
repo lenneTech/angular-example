@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BASE_MODULE_CONFIG } from '@lenne.tech/ng-base';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [HttpClientModule],
+      imports: [FormsModule, ReactiveFormsModule],
+      providers: [{
+        provide: BASE_MODULE_CONFIG,
+        useValue: {}
+      }]
     }).compileComponents();
   }));
 

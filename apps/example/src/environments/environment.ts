@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  // Angular config
   production: false,
+
+  // @lenne.tech/nb-base config
+  // See https://github.com/lenneTech/ng-base/tree/main/projects/ng-base#integration-into-an-angular-project
+  apiUrl: 'http://localhost:3000/graphql',
+  prefix: 'example'
 };
 
 /*
