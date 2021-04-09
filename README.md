@@ -28,7 +28,16 @@ If you are not yet familiar with Angular or Nest, we recommend the following cou
 
 Initialization
 ```
+git clone https://github.com/lenneTech/angular-example.git
+cd angular-example
 npm i
+```
+
+or use the [lenne.Tech CLI](https://github.com/lenneTech/cli) and use your desired configuration:
+
+```
+npm i -g @lenne.tech/cli
+lt angular c
 ```
 
 Start (for development)
