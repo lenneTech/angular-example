@@ -1,21 +1,34 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
-import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import envConfig from './config.env';
+import { ServerModule } from './server/server.module';
 
-import { AppModule } from './app/app.module';
-
+/**
+ * Preparations for server start
+ */
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port, () => {
-    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
-  });
+  // Create a new server based on fastify
+  const server = await NestFactory.create<NestExpressApplication>(
+    // Include server module, with all necessary modules for the project
+    ServerModule
+  );
+
+  // Asset directory
+  server.useStaticAssets(envConfig.staticAssets.path, envConfig.staticAssets.options);
+
+  // Templates directory
+  server.setBaseViewsDir(envConfig.templates.path);
+  server.setViewEngine(envConfig.templates.engine);
+
+  // Enable cors to allow requests from other domains
+  server.enableCors();
+
+  // Set global prefix (if server runs in subdirectory, e.g. /api)
+  // server.setGlobalPrefix('api');
+
+  // Start server on configured port
+  await server.listen(envConfig.port);
 }
 
+// Start server
 bootstrap();

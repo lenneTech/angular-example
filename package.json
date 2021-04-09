@@ -24,7 +24,9 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main"
+    "postinstall": "ngcc --properties es2015 browser module main",
+    "start:app": "npm start",
+    "start:server": "nx serve api"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +38,7 @@
     "@angular/platform-browser": "^11.2.0",
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
+    "@lenne.tech/nest-server": "^0.1.6",
     "@lenne.tech/ng-base": "0.0.2",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
