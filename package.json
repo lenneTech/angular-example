@@ -36,6 +36,7 @@
     "@angular/platform-browser": "^11.2.0",
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
+    "@lenne.tech/ng-base": "0.0.2",
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
