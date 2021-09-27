@@ -32,14 +32,10 @@ const config: { [env: string]: Partial<IServerOptions> } = {
     },
     jwt: {
       // tslint:disable-next-line:max-line-length
-      secretOrPrivateKey: 'SECRET_OR_PRIVATE_KEY_DEV',
+      secret: 'SECRET_OR_PRIVATE_KEY_DEV',
     },
-    mikroOrm: {
-      autoLoadEntities: true,
-      dbName: 'nest-server-dev',
-      host: 'localhost',
-      port: 27017,
-      type: 'mongo',
+    mongoose: {
+      uri: 'mongodb://localhost/nest-dev',
     },
     port: 3000,
     staticAssets: {
@@ -79,14 +75,10 @@ const config: { [env: string]: Partial<IServerOptions> } = {
     },
     jwt: {
       // tslint:disable-next-line:max-line-length
-      secretOrPrivateKey: 'SECRET_OR_PRIVATE_KEY_PREV',
+      secret: 'SECRET_OR_PRIVATE_KEY_PREV',
     },
-    mikroOrm: {
-      autoLoadEntities: true,
-      dbName: 'nest-server-test',
-      host: 'localhost',
-      port: 27017,
-      type: 'mongo',
+    mongoose: {
+      uri: 'mongodb://localhost/nest-preview',
     },
     port: 3001,
     staticAssets: {
@@ -126,14 +118,10 @@ const config: { [env: string]: Partial<IServerOptions> } = {
     },
     jwt: {
       // tslint:disable-next-line:max-line-length
-      secretOrPrivateKey: 'SECRET_OR_PRIVATE_KEY_PROD',
+      secret: 'SECRET_OR_PRIVATE_KEY_PROD',
     },
-    mikroOrm: {
-      autoLoadEntities: true,
-      dbName: 'nest-server-prod',
-      host: 'localhost',
-      port: 27017,
-      type: 'mongo',
+    mongoose: {
+      uri: 'mongodb://localhost/nest-prod',
     },
     port: 3000,
     staticAssets: {
