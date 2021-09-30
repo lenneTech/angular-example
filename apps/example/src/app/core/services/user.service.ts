@@ -30,7 +30,7 @@ export class UserService extends GraphQLPlusService {
   }
 
   // Overwrite parent method to use extra handling
-  displayError(error) {
+  displayError(error: any) {
     console.error('Server Error!', error);
   }
 
